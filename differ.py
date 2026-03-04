@@ -1281,14 +1281,27 @@ def run(stdscr: curses.window, base_dir: str) -> None:
 
             if key == ord("r"):
                 priority: list[str] = []
+                if detail_mode and detail_repo_path:
+                    priority.append(detail_repo_path)
                 if visible:
                     center = selected_repo_idx
                     low = max(0, center - 6)
                     high = min(len(visible), center + 6)
-                    priority = [s.path for s in visible[low:high]]
+                    for s in visible[low:high]:
+                        if s.path not in priority:
+                            priority.append(s.path)
                 start_refresh(priority)
                 detail_cache.clear()
-                last_action = "refresh started (visible first)"
+                if detail_mode and detail_repo_path:
+                    repo = status_cache.get(
+                        detail_repo_path, _make_loading_status(detail_repo_path)
+                    )
+                    file_changes, selected_file_idx, diff_text = _load_repo_detail(repo)
+                    detail_cache[detail_repo_path] = (file_changes, diff_text)
+                    diff_scroll = 0
+                    last_action = "refreshed detail and statuses"
+                else:
+                    last_action = "refresh started (visible first)"
                 continue
     except KeyboardInterrupt:
         return
