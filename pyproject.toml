@@ -7,6 +7,12 @@ requires-python = ">=3.11"
 license = { file = "LICENSE" }
 authors = [{ name = "MartinWie" }]
 
+[project.scripts]
+differ = "differ:main"
+
+[project.optional-dependencies]
+build = ["pyinstaller>=6,<7"]
+
 [build-system]
 requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"

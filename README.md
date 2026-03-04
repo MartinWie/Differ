@@ -18,6 +18,44 @@ python3 differ.py [base_dir]
 
 - If `base_dir` is omitted, the current directory is used.
 
+## Install
+
+### pipx (recommended)
+
+```bash
+pipx install .
+```
+
+Then run:
+
+```bash
+differ [base_dir]
+```
+
+### Homebrew (tap)
+
+After creating a git tag/release and updating the formula SHA:
+
+```bash
+brew tap MartinWie/differ https://github.com/MartinWie/Differ
+brew install MartinWie/differ/differ
+```
+
+Formula template is in `Formula/differ.rb`.
+
+## Build Binary
+
+Build a standalone executable with PyInstaller:
+
+```bash
+./scripts/build-binary.sh
+```
+
+Outputs:
+
+- `dist/differ`
+- `dist/differ-<os>-<arch>`
+
 ## Key Controls
 
 - `q`: quit
@@ -35,3 +73,4 @@ python3 differ.py [base_dir]
 
 - Upstream/divergence information is shown when upstream tracking is configured.
 - Editor can be customized with `REPO_CHANGES_TUI_EDITOR`.
+- Version output is available via `differ --version`.

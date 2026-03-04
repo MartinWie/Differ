@@ -13,6 +13,9 @@ from pathlib import Path
 from typing import Sequence
 
 
+VERSION = "0.1.0"
+
+
 @dataclass
 class RepoStatus:
     name: str
@@ -1294,7 +1297,16 @@ def run(stdscr: curses.window, base_dir: str) -> None:
 
 
 def main() -> int:
-    base_dir = Path(sys.argv[1]).expanduser() if len(sys.argv) > 1 else Path.cwd()
+    args = sys.argv[1:]
+    if args and args[0] in ("-h", "--help"):
+        print("Usage: differ [base_dir]")
+        print("       differ --version")
+        return 0
+    if args and args[0] in ("-V", "--version"):
+        print(VERSION)
+        return 0
+
+    base_dir = Path(args[0]).expanduser() if args else Path.cwd()
     resolved_base = base_dir.resolve()
     if not resolved_base.exists() or not resolved_base.is_dir():
         print(f"Invalid base directory: {resolved_base}")
