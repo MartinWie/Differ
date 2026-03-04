@@ -1,6 +1,6 @@
 [project]
 name = "differ"
-version = "0.1.0"
+version = "0.1.1"
 description = "Terminal UI for monitoring multiple local Git repositories"
 readme = "README.md"
 requires-python = ">=3.11"
