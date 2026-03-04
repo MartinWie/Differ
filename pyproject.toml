@@ -1,0 +1,16 @@
+[project]
+name = "differ"
+version = "0.1.0"
+description = "Terminal UI for monitoring multiple local Git repositories"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "MartinWie" }]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
