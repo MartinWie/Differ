@@ -17,6 +17,6 @@ class Differ < Formula
   end
 
   test do
-    assert_equal "0.1.1", shell_output("#{bin}/differ --version").strip
+    assert_equal version.to_s, shell_output("#{bin}/differ --version").strip
   end
 end
