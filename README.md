@@ -30,7 +30,14 @@ python3 differ.py [base_dir]
 
 ## Install
 
-### pipx (recommended)
+### Homebrew (recommended)
+
+```bash
+brew tap MartinWie/differ https://github.com/MartinWie/Differ
+brew install MartinWie/differ/differ
+```
+
+### pipx
 
 ```bash
 pipx install .
@@ -40,15 +47,6 @@ Then run:
 
 ```bash
 differ [base_dir]
-```
-
-### Homebrew (tap)
-
-After creating a git tag/release and updating the formula SHA:
-
-```bash
-brew tap MartinWie/differ https://github.com/MartinWie/Differ
-brew install MartinWie/differ/differ
 ```
 
 Formula template is in `Formula/differ.rb`.
