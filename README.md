@@ -4,6 +4,16 @@
 
 It scans subdirectories in a base folder, shows branch and change state, and lets you inspect per-file diffs.
 
+## Screenshots
+
+### Main view
+
+![Main view](docs/images/main.webp)
+
+### Diff view
+
+![Diff view](docs/images/diff.webp)
+
 ## Requirements
 
 - Python 3.11+
